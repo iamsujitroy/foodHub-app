@@ -57,8 +57,6 @@ export default {
         .then((data) => {
           // handle data array here
           this.categoryItems = data[0].meals;
-          console.info(data[0].meals);
-          console.info(this.categoryItems);
         })
       // if false show the items insted of categories
       this.showCategory = false;

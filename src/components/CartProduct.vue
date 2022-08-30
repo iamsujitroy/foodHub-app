@@ -1,25 +1,35 @@
 <template>
   <div class="product-container">
-    <img
-      :src="imageUrl"
-      alt="product image here"
-      class="product-image"
-    />
+    <img :src="imageUrl" alt="product image here" class="product-image" />
     <div class="product-detail-container">
-      <h2 class="product-title">{{recipeName}}</h2>
+      <h2 class="product-title">{{ recipeName }}</h2>
       <p>Quantity: <b>1</b></p>
       <p>Price: <b>₹200</b></p>
     </div>
+    <span class="material-symbols-outlined" @click="this.removeFromCart">
+      delete
+    </span>
   </div>
 </template>
 
 <script>
+import db from "../db/data.js";
 export default {
   name: "CartProduct",
   props: {
     recipeName: String,
     imageUrl: String,
-  }
+  },
+  methods: {
+    removeFromCart: function () {
+      console.log("success !!");
+      let a = {
+        mealName: this.recipeName,
+        imageUrl: this.imageUrl,
+      };
+      db.pop(a);
+    },
+  },
 };
 </script>
 
@@ -47,5 +57,8 @@ export default {
 }
 .product-detail-container b {
   color: rgb(0, 102, 0);
+}
+.product-container > span.material-symbols-outlined {
+  color: red;
 }
 </style>

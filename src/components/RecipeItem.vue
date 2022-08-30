@@ -17,8 +17,6 @@ export default {
         imageUrl: this.imageUrl,
       };
       db.push(a);
-      console.log(db);
-      console.log(a)
     },
   },
 };
