@@ -65,7 +65,12 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
-  margin-top: 50px;
+  font-size: 2.5em;
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -34%);
+  width: 90%;
 }
 
 .cart-container {
@@ -137,7 +142,9 @@ h1 {
 @media only screen and (max-width: 450px) {
   .product-section {
     width: 100%;
-    margin: 20px auto;
+    /* margin: 20px auto; */
+    margin: 20px auto 7px auto;
+    height: 243px;
   }
   .product-container {
     width: 90%;
@@ -148,6 +155,25 @@ h1 {
   }
   .cart-product-container[data-v-1814daf3] {
     flex-direction: column;
+  }
+  .product-container img {
+    width: 39%;
+  }
+  .product-section {
+    margin: 20px auto 7px auto;
+  }
+  .product-title {
+    font-size: 1.1rem;
+  }
+  .bill-container {
+    width: 92%;
+    padding: 13px;
+  }
+  @media only screen and (max-width: 332px) {
+    .bill-table span:first-child {
+      width: 70%;
+      font-size: 0.9em;
+    }
   }
 }
 </style>

@@ -63,4 +63,17 @@ export default {
   color: red;
   cursor: pointer;
 }
+@media only screen and (max-width: 400px) {
+  .product-container img{
+    width: 39%;
+  }
+  .product-detail-container{
+    padding-left: 14px;
+  }
+  .product-title{
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.6rem;
+  }
+}
 </style>
