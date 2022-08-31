@@ -50,14 +50,6 @@ export default {
     NavBar,
     CartProduct,
   },
-  data() {
-    return {
-      // cartData: cartData,
-      dataLog: function () {
-        console.log(this.allCartProducts);
-      },
-    };
-  },
   computed: mapGetters(["allCartProducts"]),
 };
 </script>

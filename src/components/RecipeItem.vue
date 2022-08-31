@@ -17,8 +17,6 @@ export default {
         imageUrl: this.imageUrl,
       };
       this.allCartProducts.push(a);
-      console.log(this.allCartProducts);
-      console.log(a)
     },
   },
   computed: mapGetters(["allCartProducts"])

@@ -22,7 +22,6 @@ export default {
   },
   methods: {
     removeFromCart: function () {
-      console.log("success !!");
       let a = {
         mealName: this.recipeName,
         imageUrl: this.imageUrl,
@@ -30,7 +29,6 @@ export default {
       const index = this.allCartProducts.findIndex(object => {
         return object.mealName == a.mealName;
       });
-      console.log(index);
       this.allCartProducts.splice(index, 1);
 
 

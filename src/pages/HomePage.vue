@@ -15,7 +15,7 @@
     <h1 class="title">Popular Ingredients</h1>
     <div class="recipe-container popular-meals">
       <RecipeItem
-        v-for="popularIngredient in popularIngredients.slice(0, 6)"
+        v-for="popularIngredient in popularIngredients"
         :cartBtn="false"
         :imageUrl="
           'https://www.themealdb.com/images/ingredients/' +
@@ -58,10 +58,10 @@ export default {
   },
   data() {
     return {
-      randomMeals: null, // here we store random Meals data
-      popularIngredients: null, // here we store popular ingredients data
-      selectedIngredient: null, // here we store selected ingredient name
-      ingredientItems: null, // here we store selected ingredient data
+      randomMeals: undefined, // here we store random Meals data
+      popularIngredients: undefined, // here we store popular ingredients data
+      selectedIngredient: undefined, // here we store selected ingredient name
+      ingredientItems: undefined, // here we store selected ingredient data
       hideIngredients: false, // if showIngredients is fasle = showIngredientsItem
     };
   },
@@ -89,7 +89,7 @@ export default {
       ),
     ]).then((data) => {
       this.randomMeals = data[0].meals;
-      this.popularIngredients = data[1].meals;
+      this.popularIngredients = data[1].meals.slice(0, 6) || [];
     });
   },
 };
