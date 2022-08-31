@@ -25,7 +25,7 @@
       <span class="cart-item-quantity">{{ allCartProducts.length }}</span>
     </router-link>
   </nav>
-  <div class="nav-height"></div>
+  <!-- <div class="nav-height"></div> -->
 </template>
 
 <script>
@@ -54,7 +54,4 @@ export default {
     margin-top: 6px;
   }
 } */
-.nav-height{
-  height: 65px;
-}
 </style>
