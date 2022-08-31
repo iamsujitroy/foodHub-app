@@ -27,7 +27,13 @@ export default {
         mealName: this.recipeName,
         imageUrl: this.imageUrl,
       };
-      this.allCartProducts.pop(a);
+      const index = this.allCartProducts.findIndex(object => {
+        return object.mealName == a.mealName;
+      });
+      console.log(index);
+      this.allCartProducts.splice(index, 1);
+
+
     },
   },
   computed: mapGetters(["allCartProducts"]),
@@ -50,7 +56,6 @@ export default {
 }
 .product-image {
   width: 22%;
-  background: green;
 }
 .product-detail-container {
   width: 78%;
