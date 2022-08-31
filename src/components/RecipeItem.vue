@@ -1,5 +1,5 @@
 <script>
-import db from "../db/data.js";
+import { mapGetters } from "vuex"
 export default {
   name: "RecipeItem",
   props: {
@@ -16,9 +16,12 @@ export default {
         mealName: this.mealName,
         imageUrl: this.imageUrl,
       };
-      db.push(a);
+      this.allCartProducts.push(a);
+      console.log(this.allCartProducts);
+      console.log(a)
     },
   },
+  computed: mapGetters(["allCartProducts"])
 };
 </script>
 

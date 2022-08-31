@@ -28,6 +28,10 @@ nav {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 3px 5px #00000024;
 }
 
 .logo {

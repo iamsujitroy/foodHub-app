@@ -1,12 +1,12 @@
 <template>
   <NavBar />
   <div class="cart-container">
-    <h1 v-if="isCartEmpty">Your Cart is Empty</h1>
+    <h1 v-if="allCartProducts.length <= 0">Your Cart is Empty</h1>
     <div v-else>
       <div class="cart-product-container">
         <div class="product-section">
           <CartProduct
-            v-for="productData in cartData"
+            v-for="productData in allCartProducts"
             :recipeName="productData.mealName"
             :imageUrl="productData.imageUrl"
             :key="productData.recipeName"
@@ -16,18 +16,16 @@
           <div class="bill-container">
             <h4 class="bill-title">Order Summary</h4>
             <p class="bill-table">
-              <span>Total Product</span><span>{{ cartData.length }} Qty</span>
+              <span>Total Product</span
+              ><span>{{ allCartProducts.length }} Qty</span>
             </p>
             <p class="bill-table">
               <span>Product Total</span
-              ><span>₹{{ cartData.length * 200 }}</span>
+              ><span>₹{{ allCartProducts.length * 200 }}</span>
             </p>
+            <p class="bill-table"><span>Delivery</span><span>Free</span></p>
             <p class="bill-table">
-              <span>Delivery</span
-              ><span>Free</span>
-            </p>
-            <p class="bill-table">
-              <span>Total</span><span>₹{{ cartData.length * 200 }}</span>
+              <span>Total</span><span>₹{{ allCartProducts.length * 200 }}</span>
             </p>
             <button class="checkout-btn">
               Checkout
@@ -44,7 +42,7 @@
 // import components here
 import NavBar from "../components/NavBar.vue";
 import CartProduct from "../components/CartProduct.vue";
-import cartData from "../db/data.js";
+import { mapGetters } from "vuex";
 
 export default {
   name: "App",
@@ -54,10 +52,13 @@ export default {
   },
   data() {
     return {
-      isCartEmpty: false,
-      cartData: cartData,
+      // cartData: cartData,
+      dataLog: function () {
+        console.log(this.allCartProducts);
+      },
     };
   },
+  computed: mapGetters(["allCartProducts"]),
 };
 </script>
 

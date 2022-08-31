@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import db from "../db/data.js";
+import { mapGetters } from "vuex";
 export default {
   name: "CartProduct",
   props: {
@@ -27,9 +27,10 @@ export default {
         mealName: this.recipeName,
         imageUrl: this.imageUrl,
       };
-      db.pop(a);
+      this.allCartProducts.pop(a);
     },
   },
+  computed: mapGetters(["allCartProducts"]),
 };
 </script>
 
@@ -60,5 +61,6 @@ export default {
 }
 .product-container > span.material-symbols-outlined {
   color: red;
+  cursor: pointer;
 }
 </style>

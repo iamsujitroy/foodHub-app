@@ -5,7 +5,7 @@
     </router-link>
     <router-link to="/cart" class="cart-btn toggle-mobile-view">
       <span class="material-symbols-outlined">shopping_cart</span>
-      <span class="cart-item-quantity">{{ cartData.length }}</span>
+      <span class="cart-item-quantity">{{ allCartProducts.length }}</span>
     </router-link>
     <span class="material-symbols-outlined menu-toggler" @click="menuToggle">{{
       openedMenu ? "close" : "menu"
@@ -22,13 +22,14 @@
     </ul>
     <router-link to="/cart" class="cart-btn toggle-desktop-view">
       <span class="material-symbols-outlined">shopping_cart</span>
-      <span class="cart-item-quantity">{{ cartData.length }}</span>
+      <span class="cart-item-quantity">{{ allCartProducts.length }}</span>
     </router-link>
   </nav>
+  <div class="nav-height"></div>
 </template>
 
 <script>
-import cartData from "../db/data.js";
+import { mapGetters} from "vuex"
 export default {
   name: "NavBar",
   data() {
@@ -37,9 +38,9 @@ export default {
       menuToggle: () => {
         this.openedMenu = !this.openedMenu;
       },
-      cartData: cartData,
     };
   },
+  computed: mapGetters(["allCartProducts"])
 };
 </script>
 
@@ -53,4 +54,7 @@ export default {
     margin-top: 6px;
   }
 } */
+.nav-height{
+  height: 65px;
+}
 </style>
