@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div v-if="!hideIngredients">
     <h1 class="title">Random Meal</h1>
     <div class="recipe-container random-meals">
@@ -47,13 +46,11 @@
 // import axios from "axios";
 
 // import components here
-import NavBar from "../components/NavBar.vue";
 import RecipeItem from "../components/RecipeItem.vue";
 
 export default {
   name: "App",
   components: {
-    NavBar,
     RecipeItem,
   },
   data() {

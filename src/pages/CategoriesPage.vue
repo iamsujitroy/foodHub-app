@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div v-if="showCategory">
     <h1 class="title">All Categories</h1>
     <div class="recipe-container all-categories">
@@ -29,13 +28,11 @@
 
 <script>
 // import components here
-import NavBar from "../components/NavBar.vue";
 import RecipeItem from "../components/RecipeItem.vue";
 
 export default {
   name: "App",
   components: {
-    NavBar,
     RecipeItem,
   },
   data() {

@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div>
     <span>Oops!</span>
     <h1>404 - Page Not Found</h1>
@@ -7,14 +6,8 @@
 </template>
 
 <script>
-// import components here
-import NavBar from "../components/NavBar.vue";
-
 export default {
-  name: "App",
-  components: {
-    NavBar,
-  },
+  name: "404 - page not found",
 };
 </script>
 <style scoped>

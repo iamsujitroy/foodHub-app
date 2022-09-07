@@ -1,7 +1,6 @@
 <template>
-  <NavBar />
   <div class="cart-container">
-    <h1 v-if="allCartProducts.length <= 0">Your Cart is Empty</h1>
+    <h1 v-if="totalCartQty <= 0">Your Cart is Empty</h1>
     <div v-else>
       <div class="cart-product-container">
         <div class="product-section">
@@ -9,6 +8,7 @@
             v-for="productData in allCartProducts"
             :recipeName="productData.mealName"
             :imageUrl="productData.imageUrl"
+            :qty="productData.qty"
             :key="productData.recipeName"
           />
         </div>
@@ -17,15 +17,15 @@
             <h4 class="bill-title">Order Summary</h4>
             <p class="bill-table">
               <span>Total Product</span
-              ><span>{{ allCartProducts.length }} Qty</span>
+              ><span>{{ totalCartQty }} Qty</span>
             </p>
             <p class="bill-table">
               <span>Product Total</span
-              ><span>₹{{ allCartProducts.length * 200 }}</span>
+              ><span>₹{{ totalCartQty * 200 }}</span>
             </p>
             <p class="bill-table"><span>Delivery</span><span>Free</span></p>
             <p class="bill-table">
-              <span>Total</span><span>₹{{ allCartProducts.length * 200 }}</span>
+              <span>Total</span><span>₹{{ totalCartQty * 200 }}</span>
             </p>
             <button class="checkout-btn">
               Checkout
@@ -40,17 +40,20 @@
 
 <script>
 // import components here
-import NavBar from "../components/NavBar.vue";
 import CartProduct from "../components/CartProduct.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "App",
   components: {
-    NavBar,
     CartProduct,
   },
-  computed: mapGetters(["allCartProducts"]),
+  computed: {
+    ...mapGetters({
+      allCartProducts: "allCartProducts",
+      totalCartQty: "totalCartQty",
+    }),
+  },
 };
 </script>
 

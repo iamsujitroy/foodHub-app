@@ -1,32 +1,37 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
 // import HomeView from '../pages/HomePage.vue'
 
 const routes = [
   {
-    path: '/:pathMatch(.*)*',
-    name: '404',
-    component: () => import('../pages/404.vue')
+    name: "404",
+    path: "/:pathMatch(.*)*",
+    component: () => import("../pages/404.vue"),
   },
   {
-    path: '/',
-    name: 'home',
-    component: () => import('../pages/HomePage.vue')
+    name: "home",
+    path: "/",
+    component: () => import("../pages/HomePage.vue"),
   },
   {
-    path: '/categories',
-    name: 'categories',
-    component: () => import('../pages/CategoriesPage.vue')
+    name: "categories",
+    path: "/categories",
+    component: () => import("../pages/CategoriesPage.vue"),
   },
   {
-    path: '/cart',
-    name: 'cart',
-    component: () => import('../pages/CartPage.vue')
-  }
-]
+    name: "cart",
+    path: "/cart",
+    component: () => import("../pages/CartPage.vue"),
+  },
+  {
+    name: "category",
+    path: "/category/:category_name",
+    component: () => import("../pages/CategoryPage.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
