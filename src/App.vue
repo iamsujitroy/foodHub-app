@@ -13,3 +13,7 @@ export default {
   },
 };
 </script>
+
+<style>
+  @import "./design/global.css"
+</style>

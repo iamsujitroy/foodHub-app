@@ -37,6 +37,7 @@
         :imageUrl="ingredientItem.strMealThumb"
         :mealName="ingredientItem.strMeal"
         :key="ingredientItem.strMealThumb"
+        :productLink="'Ingredients/' + category.strCategory"
       />
     </div>
   </div>

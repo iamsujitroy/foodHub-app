@@ -6,9 +6,14 @@ export default {
     cartBtn: Boolean,
     imageUrl: String,
     mealName: String,
+
     onImageClick: Function,
     onTitleClick: Function,
     onClickButton: Function,
+
+    productLink: String,
+    // imageLink: String,
+    // titleLink: String,
   },
   methods: {
     addToCart: function () {
@@ -33,12 +38,20 @@ export default {
 </script>
 
 <template>
-  <div class="recipe-item">
-    <img :src="imageUrl" alt="recipe name" v-on:click="onImageClick" />
-    <h2 click="onTitleClick" v-on:click="onTitleClick">{{ this.mealName }}</h2>
+  <div v-if="productLink == undefined" class="recipe-item" :to="productLink">
+    <img :src="imageUrl" alt="recipe name" @click="onImageClick" />
+    <h2 click="onTitleClick" @click="onTitleClick">{{ this.mealName }}</h2>
     <div class="recipe-price-container" v-if="this.cartBtn">
       <p class="recipe-price">MRP: <b>₹200</b></p>
       <button class="addToCart-btn" @click="this.addToCart">Add to Cart</button>
     </div>
   </div>
+  <router-link v-else class="recipe-item" :to="productLink">
+    <img :src="imageUrl" alt="recipe name" @click="onImageClick" />
+    <h2 click="onTitleClick" @click="onTitleClick">{{ this.mealName }}</h2>
+    <div class="recipe-price-container" v-if="this.cartBtn">
+      <p class="recipe-price">MRP: <b>₹200</b></p>
+      <button class="addToCart-btn" @click="this.addToCart">Add to Cart</button>
+    </div>
+  </router-link>
 </template>

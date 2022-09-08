@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showCategory">
+  <div>
     <h1 class="title">All Categories</h1>
     <div class="recipe-container all-categories">
       <RecipeItem
@@ -8,19 +8,7 @@
         :imageUrl="category.strCategoryThumb"
         :mealName="category.strCategory"
         :key="category.strCategoryThumb"
-        @click="showCategoryItems(category.strCategory)"
-      />
-    </div>
-  </div>
-  <div v-else>
-    <h1 class="title">{{selectedCategory}}</h1>
-    <div class="recipe-container all-categories">
-      <RecipeItem
-        v-for="item in categoryItems"
-        :cartBtn="!showCategory"
-        :imageUrl="item.strMealThumb"
-        :mealName="item.strMeal"
-        :key="item.idMeal"
+        :productLink="'categories/' + category.strCategory"
       />
     </div>
   </div>
@@ -44,22 +32,21 @@ export default {
     };
   },
   methods: {
-    showCategoryItems(category) {
-      // fetch category items
-      Promise.all([
-        fetch(
-          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
-        ).then((res) => (res.ok && res.json()) || Promise.reject(res)),
-      ])
-        .then((data) => {
-          // handle data array here
-          this.categoryItems = data[0].meals;
-        })
-      // if false show the items insted of categories
-      this.showCategory = false;
-      // it will store the currently selected category
-      this.selectedCategory = category;
-    },
+    // showCategoryItems(category) {
+    //   // fetch category items
+    //   Promise.all([
+    //     fetch(
+    //       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+    //     ).then((res) => (res.ok && res.json()) || Promise.reject(res)),
+    //   ]).then((data) => {
+    //     // handle data array here
+    //     this.categoryItems = data[0].meals;
+    //   });
+    //   // if false show the items insted of categories
+    //   this.showCategory = false;
+    //   // it will store the currently selected category
+    //   this.selectedCategory = category;
+    // },
   },
   created() {
     Promise.all([
@@ -73,3 +60,5 @@ export default {
   },
 };
 </script>
+
+<!-- @click="showCategoryItems(category.strCategory)" -->

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import HomeView from '../pages/HomePage.vue'
+// import { createRouter } from "vue-router";
 
 const routes = [
   {
@@ -8,23 +8,38 @@ const routes = [
     component: () => import("../pages/404.vue"),
   },
   {
-    name: "home",
+    name: "Home Page",
     path: "/",
     component: () => import("../pages/HomePage.vue"),
   },
   {
-    name: "categories",
+    name: "Categories Page",
     path: "/categories",
     component: () => import("../pages/CategoriesPage.vue"),
   },
   {
-    name: "cart",
+    name: "Ingredients Page",
+    path: "/ingredients",
+    component: () => import("../pages/IngredientsPage.vue"),
+  },
+  {
+    name: "Cart Page",
     path: "/cart",
     component: () => import("../pages/CartPage.vue"),
   },
   {
-    name: "category",
-    path: "/category/:category_name",
+    name: "Product page",
+    path: "/product",
+    component: () => import("../pages/ProductPage.vue"),
+  },
+  {
+    name: "Category Page",
+    path: "/categories/:category_name",
+    component: () => import("../pages/CategoryPage.vue"),
+  },
+  {
+    name: "Ingredient Page",
+    path: "/ingredients/:ingredient_name", // types categories, ingredients , and more
     component: () => import("../pages/CategoryPage.vue"),
   },
 ];

@@ -1,0 +1,47 @@
+.main-container {
+  width: 1350px;
+  margin: auto;
+  margin-top: 70px;
+  display: flex;
+}
+.left-conatiner {
+  width: 50%;
+}
+.left-conatiner img {
+  width: 82%;
+}
+
+.right-container {
+  width: 50%;
+}
+h1.product-name {
+  margin-top: 30px;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 23px;
+}
+
+.addToCart-btn {
+  padding: 10px 35px;
+  border-radius: 23px;
+  margin-top: 19px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.description-conatiner {
+  margin-top: 40px;
+}
+
+p.description {
+  height: 308px;
+  overflow-y: auto;
+  font-size: 1rem;
+  text-align: justify;
+  word-spacing: 4px;
+  line-height: 1.8;
+  padding-right: 10px;
+}
