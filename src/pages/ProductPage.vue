@@ -17,6 +17,7 @@
       </div>
       <button class="addToCart-btn" @click="addToCart">Add to Cart</button>
       <div class="description-conatiner">
+        <h3 class="description-title">Description</h3>
         <p class="description">{{ mealDetails.strInstructions }}</p>
       </div>
     </div>
