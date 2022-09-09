@@ -29,7 +29,7 @@ h1.product-name {
 .addToCart-btn {
   padding: 10px 35px;
   border-radius: 23px;
-  margin-top: 19px;
+  margin-top: 20px;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -50,12 +50,21 @@ p.description {
   display: flex;
   margin-top: 20px;
 }
+
 .input-product-qty input {
+  outline: none;
   width: 70px;
   -moz-appearance: textfield;
   text-align: center;
   font-size: 16px;
   font-weight: 600;
+  background: rgba(172, 255, 47, 0.288);
+}
+.input-product-qty button {
+  background: #006c00;
+  border: none;
+  outline: none;
+  color: #fff !important;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
