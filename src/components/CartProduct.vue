@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import swal from "sweetalert2";
 import { mapGetters } from "vuex";
 export default {
   name: "CartProduct",
@@ -44,7 +45,14 @@ export default {
         return object.mealName == this.recipeName;
       });
       this.allCartProducts.splice(index, 1);
-      console.log(this.allCartProducts)
+      console.log(this.allCartProducts);
+
+      swal.fire({
+        title: "Success!",
+        text: "Item Removed from Cart",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
     },
     updateProductQty: function () {
       const index = this.allCartProducts.findIndex((object) => {
@@ -53,7 +61,7 @@ export default {
       this.allCartProducts[index].qty = this.productQty;
     },
     emptyProductQty: function () {
-      if (this.qty == "") {
+      if (this.qty == "" || this.qty < 0) {
         this.productQty = 0;
         console.log("your product input field is empty");
         this.updateProductQty();
@@ -104,7 +112,7 @@ export default {
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
+  --moz-appearance: textfield;
   border: 1px solid #26a226;
   width: 36px;
   text-align: center;

@@ -10,6 +10,7 @@ const routes = [
   {
     name: "Home Page",
     path: "/",
+    alias: '/home',
     component: () => import("../pages/HomePage.vue"),
   },
   {
@@ -29,7 +30,7 @@ const routes = [
   },
   {
     name: "Product page",
-    path: "/product",
+    path: "/product/:productId",
     component: () => import("../pages/ProductPage.vue"),
   },
   {

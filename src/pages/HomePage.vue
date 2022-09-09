@@ -8,6 +8,9 @@
         :imageUrl="randomMeal.strMealThumb"
         :mealName="randomMeal.strMeal"
         :key="randomMeal.strMealThumb"
+        :imageLink="'product/' + randomMeal.idMeal"
+        
+        
       />
     </div>
 
@@ -22,22 +25,8 @@
           '.png'
         "
         :mealName="popularIngredient.strIngredient"
-        :url="popularIngredient"
         :key="popularIngredient.idIngredient"
-        @click="showIngredientItems(popularIngredient.strIngredient)"
-      />
-    </div>
-  </div>
-  <div v-if="hideIngredients">
-    <h1 class="title">{{ selectedCategory }}</h1>
-    <div class="recipe-container all-categories">
-      <RecipeItem
-        v-for="ingredientItem in ingredientItems"
-        :cartBtn="hideIngredients"
-        :imageUrl="ingredientItem.strMealThumb"
-        :mealName="ingredientItem.strMeal"
-        :key="ingredientItem.strMealThumb"
-        :productLink="'Ingredients/' + category.strCategory"
+        :productLink="'ingredients/' + popularIngredient.strIngredient"
       />
     </div>
   </div>
@@ -63,20 +52,6 @@ export default {
       hideIngredients: false, // if showIngredients is fasle = showIngredientsItem
     };
   },
-  methods: {
-    showIngredientItems(ingredient) {
-      Promise.all([
-        fetch(
-          `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
-        ).then((res) => (res.ok && res.json()) || Promise.reject(res)),
-      ]).then((data) => {
-        // handle data array here
-        this.ingredientItems = data[0].meals;
-      });
-      this.hideIngredients = true; // if false show the items insted of categories
-      this.selectedCategory = ingredient; // it will store the currently selected category
-    },
-  },
   created() {
     Promise.all([
       fetch("https://www.themealdb.com/api/json/v1/1/random.php").then(
@@ -92,5 +67,3 @@ export default {
   },
 };
 </script>
-
-<!-- @click="showIngredientItems(popularIngredient.strIngredient)" -->

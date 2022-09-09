@@ -4,7 +4,7 @@
     <div class="recipe-container all-categories">
       <RecipeItem
         v-for="category in categories"
-        :cartBtn="!showCategory"
+        :cartBtn="false"
         :imageUrl="category.strCategoryThumb"
         :mealName="category.strCategory"
         :key="category.strCategoryThumb"
@@ -28,25 +28,7 @@ export default {
       categories: null,
       selectedCategory: null,
       categoryItems: null,
-      showCategory: true,
     };
-  },
-  methods: {
-    // showCategoryItems(category) {
-    //   // fetch category items
-    //   Promise.all([
-    //     fetch(
-    //       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
-    //     ).then((res) => (res.ok && res.json()) || Promise.reject(res)),
-    //   ]).then((data) => {
-    //     // handle data array here
-    //     this.categoryItems = data[0].meals;
-    //   });
-    //   // if false show the items insted of categories
-    //   this.showCategory = false;
-    //   // it will store the currently selected category
-    //   this.selectedCategory = category;
-    // },
   },
   created() {
     Promise.all([

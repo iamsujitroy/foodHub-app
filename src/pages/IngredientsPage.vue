@@ -1,5 +1,4 @@
 <template>
-  <h1 class="title">{{ selectedCategoryName }}</h1>
   <div class="recipe-container all-categories">
     <RecipeItem
       v-for="ingredient in allIngredients"
@@ -11,6 +10,7 @@
       "
       :mealName="ingredient.strIngredient"
       :key="ingredient.idIngredient"
+      :productLink="'ingredients/' + ingredient.strIngredient"
     />
   </div>
 </template>

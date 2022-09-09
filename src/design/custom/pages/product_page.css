@@ -1,7 +1,8 @@
 .main-container {
-  width: 1350px;
+  max-width: 1350px;
   margin: auto;
   margin-top: 70px;
+  padding: 0 40px;
   display: flex;
 }
 .left-conatiner {
@@ -44,4 +45,26 @@ p.description {
   word-spacing: 4px;
   line-height: 1.8;
   padding-right: 10px;
+}
+.input-product-qty {
+  display: flex;
+  margin-top: 20px;
+}
+.input-product-qty input {
+  width: 70px;
+  -moz-appearance: textfield;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.input-product-qty .material-symbols-outlined {
+  color: #000;
+  cursor: pointer;
 }
